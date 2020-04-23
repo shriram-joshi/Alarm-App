@@ -7,6 +7,9 @@ import android.content.Intent;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+        System.out.println(">>>>>>>>>>>>RECIEVED");
 
+        Intent showAlarm = new Intent(context,AlarmActivity.class);
+        context.startActivity(showAlarm);
     }
 }
