@@ -6,6 +6,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,11 +36,29 @@ public class MainActivity extends AppCompatActivity {
 
         final Calendar calendar = Calendar.getInstance();
 
+        hh.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(hh.getText().toString().length()==2&&mm.getText().toString().length()!=2)
+                    mm.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hh.getText().toString()));
-                calendar.set(Calendar.MINUTE, Integer.parseInt(hh.getText().toString()));
+                calendar.set(Calendar.MINUTE, Integer.parseInt(mm.getText().toString()));
 
                 Intent sendAlarm = new Intent(MainActivity.this,AlarmReceiver.class);
 

@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:hint="HH"
         android:textSize="50sp"
+        android:inputType="number"
+        android:maxLength="2"
          />
     <TextView
         android:id="@+id/colon"
@@ -28,7 +30,9 @@
         android:layout_height="wrap_content"
         android:hint="MM"
         android:textSize="50sp"
-        android:layout_toEndOf="@id/colon"/>
+        android:layout_toEndOf="@id/colon"
+        android:inputType="number"
+        android:maxLength="2"/>
 
     <Button
         android:id="@+id/set"

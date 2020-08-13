@@ -10,6 +10,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         System.out.println(">>>>>>>>>>>>RECIEVED");
 
         Intent showAlarm = new Intent(context,AlarmActivity.class);
+        showAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(showAlarm);
     }
 }
